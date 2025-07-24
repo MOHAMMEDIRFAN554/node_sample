@@ -1,3 +1,5 @@
+// task 1 DAY 1
+ 
 function even(num) {
     // let sum = 0;
     if (num % 2 === 0) {

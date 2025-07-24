@@ -1,3 +1,5 @@
+// task 3 DAY 1
+
 function isPrime(num) {
     if (num <= 1) {
         // console.log(`${num} is not a Prime Number`);
