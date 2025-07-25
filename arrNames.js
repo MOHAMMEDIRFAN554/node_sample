@@ -14,7 +14,7 @@ let names = ["ALICE", "BOB", "CHARLIE"];
 insertName(names, "david");       
 insertName(names, "alice");
 insertName(names, "maya");
-insertName(names, "alice");+ZXCVB
+insertName(names, "alice");
  
 insertName(names, "bob");
 insertName(names, "sofi");
