@@ -11,7 +11,7 @@ function insertName(array, name) {
 }
 let names = ["ALICE", "BOB", "CHARLIE"];
 
-insertName(names, "david");       
+insertName(names, "david");
 insertName(names, "alice");
 insertName(names, "maya");
 insertName(names, "alice");
