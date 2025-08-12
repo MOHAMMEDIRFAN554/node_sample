@@ -46,6 +46,10 @@ const server = http.createServer((req, res) => {
             res.end(`${name} successfully removed. Updated database = ${JSON.stringify(users)}`);
         }
     }
+    else if (url.includes("editUser")){
+        
+
+    }
 
     else {
         res.end("Invalid endpoint. Try /getAllUser, /insertUser, or /deleteUser");
