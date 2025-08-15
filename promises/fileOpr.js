@@ -7,7 +7,7 @@ const server = http.createServer((req, res) => {
     const renamedFile = 'newFile.txt';
     const registryFile = 'reg.txt';
 
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
+
 
 
     if (req.url.includes("createFile")) {

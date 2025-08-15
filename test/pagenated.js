@@ -1,5 +1,4 @@
 const http = require('http')
-const { endianness } = require('os')
 
 let users=[{"id":1,"first_name":"Verene","address":"45 Portage Point"},
 {"id":2,"first_name":"Wylie","address":"5 Utah Junction"},
@@ -106,7 +105,7 @@ const PORT = 4000
 let server = http.createServer((req,res)=>{
 
     let url = req.url
-    // /getPaginatedUsers?pageNumber=1&count=10
+    // /getPaginatedUsers? pageNumber=1&count=10
 
     if (url.includes("getPaginatedUsers")){
 
@@ -116,8 +115,8 @@ let server = http.createServer((req,res)=>{
         let pageNumber = parseInt(str.split('&')[0].split("=")[1])
         let count = parseInt(str.split('&')[1].split("=")[1])
 
-        let startIndex = (pageNumber -1) * count
-        let endIndex = startIndex+count
+        let startIndex = (pageNumber -1) * count//10
+        let endIndex = startIndex+count//10
 
 
 
