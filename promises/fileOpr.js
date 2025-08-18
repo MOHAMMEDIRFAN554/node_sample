@@ -69,6 +69,10 @@ const server = http.createServer((req, res) => {
     }
 });
 
-server.listen(PORT, () => {
-    console.log(`Server started successfully on port ${PORT}`);
+server.listen(PORT, (err) => {
+
+    if (err) {
+        console.log("Error", err)
+    }
+    else { console.log(`Server started successfully on port ${PORT}`); }
 });
