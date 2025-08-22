@@ -10,8 +10,13 @@ const server = http.createServer((req, res) => {
         res.end(`heres the list of users ${users}`)
     }
     else if (url.includes("insertUser")){
+        console.log(url)
         str = url.split("?")[1]
+        console.log(str)
+
         nam= str.split("=")[1]
+        console.log(nam)
+
 
         if(users.includes(nam)){
             res.end(`the name ${nam} is already exists`)

@@ -7,5 +7,9 @@ function palindrome(str){
         return false
     }
 }
+function sum(n){
 
-module.exports = {palindrome}
+
+}
+
+module.exports = {palindrome,sum}

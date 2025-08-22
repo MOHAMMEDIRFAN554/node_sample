@@ -6,7 +6,7 @@ const server = http.createServer(function (req, res) {
     if (req.url.includes('?')) {
         const string = req.url.split('?')[1];
         const parts = string.split('&');
-
+        
         let num1 = parseInt(parts[0].split('=')[1]);
         let num2 = parseInt(parts[1].split('=')[1]);
 

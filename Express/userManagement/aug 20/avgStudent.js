@@ -31,7 +31,7 @@ app.post('/register', (req, res) => {
     else if (!validEmail(email)) {
         result = { status: "reject", message: "Invalid email format." };
     }
-    else if (users.some(u => u.email === email)) {
+    else if (users.some(u => u.email.toLowerCase() === email.toLowerCase())) {
         result = { status: "reject", message: "Email already exists." };
     }
 
@@ -41,6 +41,20 @@ app.post('/register', (req, res) => {
     } else {
         res.status(400).json(result);
     }
+});
+
+app.get('/average', (req, res) => {
+    let result = { status: "approve", message: "" };
+
+    if (users.length === 0) {
+        result = { status: "reject", message: "No students found." };
+    } else {
+        const total = users.reduce((sum, u) => sum + u.mark, 0);
+        const avg = total / users.length;
+        result.message = `Average mark of students: ${avg.toFixed(2)}`;
+    }
+
+    res.json(result);
 });
 
 app.listen(3000, () => console.log("Server running on port 3000"));

@@ -1,7 +1,8 @@
 function sum(a, b) {
     return a + b;
 }
-
+//num1 = 30
+//num1 = n
 function isPrime(n) {
     if (n < 2) return false;
     for (let i = 2; i <= Math.sqrt(n); i++) {

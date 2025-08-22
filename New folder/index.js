@@ -1,10 +1,9 @@
 const http = require('http');
 const url = require('url');
-const funnct = require('./functions').palindrome
+const funct = require('./functions')
 const PORT = 4200
 const server = http.createServer((req, res) => {
     if (req.url === '/favicon.ico') return;
-
     const query = url.parse(req.url, true).query;
     const num1 = parseInt(query.num1);
     const num2 = parseInt(query.num2);
