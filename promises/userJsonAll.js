@@ -19,37 +19,37 @@ const server = http.createServer((req, res) => {
     }
 
     // insrt
-else if (url.includes('insertUser')) {
-    let name = url.split('=')[1].split('&')[0];
-    let id = parseInt(url.split('=')[2].split('&')[0]);
-    let mark = parseInt(url.split('=')[3]);
+    else if (url.includes('insertUser')) {
+        let name = url.split('=')[1].split('&')[0];
+        let id = parseInt(url.split('=')[2].split('&')[0]);
+        let mark = parseInt(url.split('=')[3]);
 
-    if (!name?.trim()) {
-        res.end("User name cannot be empty");
-        return;
+        if (!name?.trim()) {
+            res.end("User name cannot be empty");
+            return;
+        }
+
+        fs.readFile('users.json', ENCODING)
+            .then(fileData => {
+                let usersArr = JSON.parse(fileData);
+
+                let exists = usersArr.some(user => user.name === name);
+                if (exists) {
+                    res.end("Error: User with same name already exists");
+                    return Promise.reject();
+                }
+
+                usersArr.push({ name, id, mark });
+
+                return fs.writeFile('users.json', JSON.stringify(usersArr, null, 2));
+            })
+            .then(() => {
+                res.end("User inserted successfully");
+            })
+            .catch(err => {
+                if (err) res.end(JSON.stringify({ error: err.message }));
+            });
     }
-
-    fs.readFile('users.json', ENCODING)
-        .then(fileData => {
-            let usersArr = JSON.parse(fileData);
-
-            let exists = usersArr.some(user => user.name === name);
-            if (exists) {
-                res.end("Error: User with same name already exists");
-                return Promise.reject(); 
-            }
-
-            usersArr.push({ name, id, mark });
-
-            return fs.writeFile('users.json', JSON.stringify(usersArr, null, 2));
-        })
-        .then(() => {
-            res.end("User inserted successfully");
-        })
-        .catch(err => {
-            if (err) res.end(JSON.stringify({ error: err.message }));
-        });
-}
 
 
     // dlt
@@ -120,10 +120,10 @@ else if (url.includes('insertUser')) {
 });
 
 server.listen(PORT, (err) => {
-    if (err){
-        console.log("error",err)
+    if (err) {
+        console.log("error", err)
     }
-    else{
+    else {
         console.log(`Server started successfully on port ${PORT}`);
     }
 });

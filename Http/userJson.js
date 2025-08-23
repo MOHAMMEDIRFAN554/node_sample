@@ -18,14 +18,13 @@ const server = http.createServer((req, res) => {
     }
 
     else if (url.includes("insertUser")) {
-        let str = url.split("?")[1];
+        let str = url.split("?")[1]; 
         let parts = str.split("&");
-
         let name = parts[0].split("=")[1];
         let age = parseInt(parts[1].split("=")[1]);
         let mark = parseInt(parts[2].split("=")[1]);
+       
 
-        
         if (users.some(user => user.name === name)) {
             res.end(`The name ${name} already exists`);
         } else {
