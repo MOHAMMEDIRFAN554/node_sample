@@ -1,0 +1,122 @@
+const express = require('express');
+const fs = require('fs');
+const app = express();
+const PORT = 4000;
+
+app.use(express.json());
+
+const FILE = 'users.json';
+
+function loadUsers() {
+    if (!fs.existsSync(FILE)) {
+        fs.writeFileSync(FILE, JSON.stringify([]));
+    }
+    return JSON.parse(fs.readFileSync(FILE));
+}
+
+function saveUsers(users) {
+    fs.writeFileSync(FILE, JSON.stringify(users, null, 2));
+}
+
+function validateUser(user, isUpdate = false) {
+    const { name, age, mark, email } = user;
+
+    if (!name || !age || !mark || !email) {
+        return "All fields (name, age, mark, email) are required.";
+    }
+
+    const allowed = ['name', 'age', 'mark', 'email'];
+    for (let key of Object.keys(user)) {
+        if (!allowed.includes(key)) {
+            return `Invalid field: ${key} is not allowed.`;
+        }
+    }
+
+    if (typeof name !== "string" || name.trim().length < 3) {
+        return "Name must be at least 3 characters long.";
+    }
+
+    if (isNaN(age)) return "Age must be a number.";
+    if (age < 17 || age > 30) return "Age must be between 17 and 30.";
+
+    if (isNaN(mark)) return "Mark must be a number.";
+    if (mark < 0 || mark > 100) return "Mark must be between 0 and 100.";
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        return "Invalid email format.";
+    }
+
+    return null; 
+}
+
+app.post('/insertUser', (req, res) => {
+    let users = loadUsers();
+    const error = validateUser(req.body);
+    if (error) return res.status(400).send(error);
+
+    const emailExist = users.find(u => u.email.toLowerCase() === req.body.email.toLowerCase());
+    if (emailExist) return res.status(400).send("Email already exists.");
+
+    users.push(req.body);
+    saveUsers(users);
+    res.send("User inserted successfully.");
+});
+
+app.get('/getAllUsers', (req, res) => {
+    let users = loadUsers();
+    res.json(users);
+});
+
+app.get('/searchByLetter', (req, res) => {
+    const letter = req.query.letter;
+    if (!letter) return res.status(400).send("Please provide a letter.");
+
+    let users = loadUsers();
+    const result = users.filter(u => u.name.toLowerCase().startsWith(letter.toLowerCase()));
+    res.json(result);
+});
+
+app.get('/averageMarks', (req, res) => {
+    let users = loadUsers();
+    if (users.length === 0) return res.send("No users available.");
+    const total = users.reduce((sum, u) => sum + u.mark, 0);
+    const avg = total / users.length;
+    res.send(`Average Marks: ${avg.toFixed(2)}`);
+});
+
+app.put('/updateUser/:email', (req, res) => {
+    let users = loadUsers();
+    const email = req.params.email.toLowerCase();
+
+    let index = users.findIndex(u => u.email.toLowerCase() === email);
+    if (index === -1) return res.status(404).send("User not found.");
+
+    const error = validateUser(req.body, true);
+    if (error) return res.status(400).send(error);
+
+    if (req.body.email.toLowerCase() !== email) {
+        let exists = users.find(u => u.email.toLowerCase() === req.body.email.toLowerCase());
+        if (exists) return res.status(400).send("Email already exists.");
+    }
+
+    users[index] = req.body;
+    saveUsers(users);
+    res.send("User updated successfully.");
+});
+
+app.delete('/deleteUser/:email', (req, res) => {
+    let users = loadUsers();
+    const email = req.params.email.toLowerCase();
+
+    let index = users.findIndex(u => u.email.toLowerCase() === email);
+    if (index === -1) return res.status(404).send("User not found.");
+
+    users.splice(index, 1);
+    saveUsers(users);
+    res.send("User deleted successfully.");
+});
+
+app.listen(PORT, () => {
+    console.log(`✅ Server running on http://localhost:${PORT}`);
+});
