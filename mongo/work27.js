@@ -86,10 +86,10 @@ app.get('/dropCollection', (req, res) => {
     client.connect().then(connection => {
         let dbo = connection.db(dbName)
         dbo.collection("NewStudents").drop().then(result => {
-            if(result){
+            if (result) {
                 res.send("collection deleted successfully")
             }
-            else{
+            else {
                 res.send("cannot delete , collection does not exists")
             }
         }).catch(err => {

@@ -1,7 +1,8 @@
 const mongoDb = require('mongodb').MongoClient;
 const url = 'mongodb://localhost:27017';
 const client = new mongoDb(url);
-
+const indexRouter = require('./routes/index.route')
+app.use('',indexRouter)
 const dbName = 'students';
 
 function findOneStudent(dbo) {
