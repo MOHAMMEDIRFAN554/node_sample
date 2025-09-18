@@ -13,7 +13,7 @@ function getDB() {
     client.connect()
       .then(connection => {
         _db = connection.db(dbName);
-        _db.collection('accounts').createIndex({ cardNumber: 1 }, { unique: true }).catch(() => {});
+        _db.collection('accounts').createIndex({ cardNumber: 1 }, { unique  : true }).catch(() => {});
         resolve(_db);
       })
       .catch(reject);

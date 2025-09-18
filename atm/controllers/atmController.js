@@ -1,6 +1,6 @@
 const { findAccount, createAccount, updateAccountByCard, saveAccountDoc } = require('../models/accountModel');
 const { addTransaction } = require('../utils/transactionHelper');
-
+import Atm from '../models/userModel';
 const INITIAL_BALANCE = 0;
 const WITHDRAW_LIMIT = 5000;     
 const FAST_CASH_OPTIONS = [500, 1000, 5000];
