@@ -1,13 +1,15 @@
 const User = require('../model/userModel')
 const getNextSequence = require('../utils/getNextSequence');
-const item= require('../model/billModels')
+const item = require('../model/billModels')
 
 exports.createUser = async (req, res) => {
   try {
     const newId = await getNextSequence("userId");
-    const user = await User.create({ userId: newId, ...req.body })
+    const image = req.file ? req.file.path : ''
+    const user = await User.create({ userId: newId, image, ...req.body })
     res.status(201).send(`user created successfully ${user.name}`)
   } catch (err) {
+    
     res.status(400).json({ error: err.message })
   }
 }
@@ -46,7 +48,7 @@ exports.findOne = async (req, res) => {
 }
 exports.updateUser = async (req, res) => {
   try {
-    const { id } = req.params;  
+    const { id } = req.params;
     const user = await User.findByIdAndUpdate(
       id,
       req.body,
@@ -62,15 +64,16 @@ exports.updateUser = async (req, res) => {
 
 exports.deleteUser = async (req, res) => {
   try {
-    const { id } = req.params;  
+    const { id } = req.params;
     const user = await User.findByIdAndDelete(id);
 
     if (!user) return res.status(404).json({ error: 'User not found' });
-    res.json({ message: 'User deleted successfully' }); 
+    res.json({ message: 'User deleted successfully' });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
+
 
 
 

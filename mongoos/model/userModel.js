@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt')
 
 const userSchema = new mongoose.Schema({
   userId: {
@@ -18,7 +19,11 @@ const userSchema = new mongoose.Schema({
   age: {
     type: Number,
     required: true
-  }
+  },
+  image:{
+    type: String,
+    default: '',
+  },
 });
 
 module.exports = mongoose.model('user', userSchema);

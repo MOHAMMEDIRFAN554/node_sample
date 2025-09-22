@@ -2,6 +2,7 @@
     const mongoose = require('mongoose')
     const app = express()
     const userRoutes = require('./routes/userRoutes')
+    const dotenv = require('dotenv')
 
     const PORT = 4500
     app.use(express.json())
@@ -19,5 +20,6 @@
     }).catch((err) => {
         console.log("error found", err)
     })
+
 
     app.use('/user',userRoutes)

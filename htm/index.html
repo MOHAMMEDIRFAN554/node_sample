@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --primary: #4f8cff;
+            --secondary: #ffb347;
+            --accent: #6ee7b7;
+            --bg: #f4f8fb;
+            --text: #22223b;
+            --header-bg: #22223b;
+            --header-text: #fff;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: var(--header-text);
+            padding: 2rem 0 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(79,140,255,0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+        header p {
+            margin: 0.5rem 0 0 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        section {
+            background: #fff;
+            margin: 2rem auto;
+            max-width: 700px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(79,140,255,0.07);
+            padding: 2rem;
+        }
+        h2 {
+            color: var(--primary);
+            margin-top: 0;
+            border-left: 5px solid var(--secondary);
+            padding-left: 0.7rem;
+            font-size: 1.5rem;
+        }
+        ul {
+            padding-left: 1.2rem;
+        }
+        li {
+            margin-bottom: 0.7rem;
+            line-height: 1.6;
+        }
+        article {
+            background: var(--bg);
+            border-left: 4px solid var(--accent);
+            margin-bottom: 1.5rem;
+            padding: 1rem 1.2rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(110,231,183,0.07);
+        }
+        article h3 {
+            margin-top: 0;
+            color: var(--secondary);
+        }
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+        @media (max-width: 800px) {
+            section {
+                max-width: 95vw;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>John Doe</h1>
+        <p>Full Stack Developer</p>
+    </header>
+    <section>
+        <h2>About Me</h2>
+        <p>
+            Passionate developer with 5+ years of experience in building web applications using JavaScript, Node.js, React, and MongoDB. Adept at designing scalable solutions and collaborating in agile teams.
+        </p>
+    </section>
+    <section>
+        <h2>Skills</h2>
+        <ul>
+            <li>JavaScript (ES6+), TypeScript</li>
+            <li>Node.js, Express.js</li>
+            <li>React, Redux</li>
+            <li>HTML5, CSS3, SASS</li>
+            <li>MongoDB, PostgreSQL</li>
+            <li>REST APIs, GraphQL</li>
+            <li>Git, Docker, CI/CD</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Projects</h2>
+        <article>
+            <h3>Project Management App</h3>
+            <p>
+                A collaborative tool for managing projects and tasks. Built with React, Node.js, and MongoDB. Features real-time updates and user authentication.
+            </p>
+            <a href="https://github.com/johndoe/project-management-app" target="_blank">View on GitHub</a>
+        </article>
+        <article>
+            <h3>E-commerce Platform</h3>
+            <p>
+                Full-featured e-commerce site with shopping cart, payment integration, and admin dashboard. Developed using MERN stack.
+            </p>
+            <a href="https://github.com/johndoe/ecommerce-platform" target="_blank">View on GitHub</a>
+        </article>
+    </section>
+    <section>
+        <h2>Experience</h2>
+        <ul>
+            <li>
+                <strong>Senior Developer</strong> at Tech Solutions (2021 - Present)<br>
+                Leading a team of 5 in building scalable web applications.
+            </li>
+            <li>
+                <strong>Web Developer</strong> at Webify (2018 - 2021)<br>
+                Developed and maintained client websites and internal tools.
+            </li>
+        </ul>
+    </section>
+    <section>
+        <h2>Education</h2>
+        <ul>
+            <li>B.Sc. in Computer Science, XYZ University (2014 - 2018)</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Contact</h2>
+        <ul>
+            <li>Email: johndoe@example.com</li>
+            <li>LinkedIn: <a href="https://linkedin.com/in/johndoe" target="_blank">linkedin.com/in/johndoe</a></li>
+            <li>GitHub: <a href="https://github.com/johndoe" target="_blank">github.com/johndoe</a></li>
+        </ul>
+    </section>
+</body>
+</html>
