@@ -1,18 +1,38 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+require('dotenv').config();
+
+const PORT = process.env.PORT
+
+
+const authRoutes = require('./Routes/authRoutes');
+const userRoutes = require('./Routes/userRoutes');
+const bookRoutes = require('./Routes/bookRoutes');
+
 const app = express();
-const PORT = 4200;
-
+app.use(cors());
 app.use(express.json());
+app.use('/uploads', express.static('uploads'));
 
-const libraryRoutes = require('./routes/libraryRoutes');
-app.use('/', libraryRoutes);
+mongoose.connect(process.env.MONGO_URI)
 
-app.listen(PORT, (err) => {
+
+  .then(() => console.log("MongoDB Connected"))
+  .catch(err => console.log(err));
+
+// Routes
+app.use('/auth', authRoutes);
+app.use('/users', userRoutes);
+app.use('/books', bookRoutes);
+
+
+app.listen(PORT,(err)=>{
     if(err){
-        console.log("Error found" ,err)
+        console.log("error occures",err)
     }
     else{
-        console.log(`Library Server is started at http://localhost:${PORT}`);
+        console.log(`server started at http://localhost:${PORT}`)
     }
-  
-});
+})
+

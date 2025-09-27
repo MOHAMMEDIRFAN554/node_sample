@@ -1,0 +1,24 @@
+.btn-black{
+  background-color: black;
+  color: red;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.btn-while{
+  background-color: white;
+  color: blue;
+  padding: 5px;
+  border-radius: 5px;
+}
+.btn{
+  width: 20%;
+}
+
+.red{
+  color: red;
+}
+
+.green{
+  color: green;
+}

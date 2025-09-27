@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+nav {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 10px 0;
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+}
+
+.navbar {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 10px;
+}
+
+.navbar li {
+    margin: 0 50px;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.navbar li a:hover {
+    color: #00bfff;
+    text-decoration: underline;
+}
+
+.login-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 350px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 26px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.login-container label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #ddd;
+}
+
+.login-container input {
+    background-color: transparent;
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.login-container input:focus {
+    border: 1px solid #00bfff;
+    box-shadow: 0 0 5px #00bfff;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #00bfff;
+    transform: scale(1.05);
+}
+
+.login-container p {
+    color: white;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.login-container a {
+    text-decoration: none;
+    color: #00bfff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.login-container a:hover {
+    color: #1e90ff;
+    text-decoration: underline;
+}
