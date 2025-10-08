@@ -1,0 +1,13 @@
+.tile{
+    height: 200px;
+    width: 230px;
+    background-color: aquamarine;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+.btn{
+    border-radius: 10px;
+    
+}

@@ -24,7 +24,7 @@ function App() {
       <button className='btn' onClick={decrementNum}>-</button>
       <button className='btn' onClick={() => addnum(1)}>+ Add</button>
       <button className='btn' onClick={() => addnum(-1)}>- Subtract</button>
-    </>
+    </>   
   )
 }
 

@@ -1,0 +1,40 @@
+.app-container {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.tab {
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0;
+  transition: 0.3s;
+}
+
+.tab:hover {
+  background: #bbb;
+}
+
+.tab.active {
+  background: #4caf50; 
+  color: white;
+  font-weight: bold;
+}
+
+.tab-content {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 0 0 10px 10px;
+  background: #fff;
+  width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}

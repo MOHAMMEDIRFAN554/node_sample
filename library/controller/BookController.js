@@ -14,7 +14,7 @@ exports.uploadBookCover = upload.single('cover');
 
 exports.addBook = async (req,res)=>{
   const { title, author, category } = req.body;
-  const cover = req.file ? req.file.path : null;
+    
   const book = await Book.create({ title, author, category, cover });
   res.json(book);
 }

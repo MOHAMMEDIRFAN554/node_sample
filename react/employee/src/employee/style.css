@@ -1,0 +1,52 @@
+.line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem auto;
+}
+
+.box {
+  border: 2px solid #b6c6e3;
+  border-radius: 15px;
+  padding: 1.5rem;
+  width: 250px;
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  box-shadow: 0 5px 15px rgba(60, 60, 120, 0.2);
+  transition: 0.3s;
+}
+
+.box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(60, 60, 120, 0.3);
+}
+
+.box h3 {
+  color: #2d3a4a;
+  margin-bottom: 10px;
+}
+
+.box p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #2d3a4a;
+}
+form input {
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  padding: 0.5rem 1rem;
+  background: #3a5ca8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #2d3a8a;
+}
